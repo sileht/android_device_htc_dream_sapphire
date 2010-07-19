@@ -23,7 +23,7 @@ endif # TARGET_KERNEL_CONFIG
 endif # TARGET_PREBUILT_KERNEL
 
 # The gps config appropriate for this device
-$(call inherit-product, device/common/gps/gps_us_supl.mk)
+$(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 DEVICE_PACKAGE_OVERLAYS := device/htc/dream_sapphire/overlay
 
@@ -43,9 +43,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES := \
     keyguard.no_require_sim=true \
     ro.com.android.dateformat=MM-dd-yyyy \
-    ro.com.android.dataroaming=true \
-    ro.ril.hsxpa=1 \
-    ro.ril.gprsclass=10 \
+    ro.com.android.dataroaming=false \
+    ro.ril.hsxpa=2 \
+    ro.ril.gprsclass=12 \
     ro.media.dec.jpeg.memcap=10000000
 
 PRODUCT_PROPERTY_OVERRIDES += \
