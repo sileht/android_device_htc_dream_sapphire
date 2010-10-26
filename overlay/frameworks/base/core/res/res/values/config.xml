@@ -28,7 +28,7 @@
     <!-- Flag indicating whether the surface flinger is inefficient
          at performing a blur.  Used by parts of the UI to turn off
          the blur effect where it isn't worth the performance hit. -->
-    <bool name="config_sf_slowBlur">true</bool>
+    <bool name="config_sf_slowBlur">false</bool>
 
     <!-- The duration (in milliseconds) of a short animation. -->
     <integer name="config_shortAnimTime">100</integer>
@@ -82,7 +82,7 @@
     <!-- Allow the menu hard key to be disabled in LockScreen on some devices -->
     <bool name="config_disableMenuKeyInLockScreen">true</bool>
 
-    <!-- Don't download GPS XTRA data on boot, this can cause a radio panic -->
-    <bool name="config_gps_xtra_download_on_boot">false</bool>
+    <!-- Control whether status bar should distinguish HSPA data icon form UMTS data icon on devices -->
+    <bool name="config_hspa_data_distinguishable">true</bool>
 
 </resources>
