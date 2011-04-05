@@ -16,7 +16,7 @@
 $(call inherit-product, $(SRC_TARGET_DIR)/product/small_base.mk)
 
 # The gps config appropriate for this device
-$(call inherit-product, device/common/gps/gps_us_supl.mk)
+$(call inherit-product, device/common/gps/gps_eu_supl.mk)
 
 DEVICE_PACKAGE_OVERLAYS := device/htc/dream_sapphire/overlay
 
@@ -71,7 +71,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PROPERTY_OVERRIDES := \
     keyguard.no_require_sim=true \
     ro.ril.hsxpa=2 \
-    ro.ril.gprsclass=10 \
+    ro.ril.gprsclass=12 \
     ro.media.dec.jpeg.memcap=10000000 \
     ro.com.google.clientidbase=android-tmobile-us \
     ro.com.google.clientidbase.vs=android-hms-tmobile-us \
@@ -103,13 +103,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.telephony.default_network=0
 
 # Disable JIT by default
-PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.execution-mode=int:fast
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    dalvik.vm.execution-mode=int:fast
 
 # The OpenGL ES API level that is natively supported by this device.
 # This is a 16.16 fixed point number
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.opengles.version=65536
+    ro.opengles.version=65537
 
 # media configuration xml file
 PRODUCT_COPY_FILES += \
@@ -124,7 +124,9 @@ endif
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_KERNEL):kernel \
-    device/htc/dream_sapphire/prebuilt/wlan.ko:/system/lib/modules/wlan.ko \
+
+TARGET_KERNEL_CONFIG := cyanogen_msm_defconfig
+TARGET_KERNEL_DIR := kernel/htc/dream_sapphire
 
 ## (2) Also get non-open-source aspects if available
 $(call inherit-product-if-exists, vendor/htc/dream_sapphire/dream_sapphire-vendor.mk)
